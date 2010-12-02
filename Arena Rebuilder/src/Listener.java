@@ -7,6 +7,7 @@
  */
 public class Listener extends PluginListener {
 		ArenaRebuilder p;
+        Server server = etc.getServer();
 
 		// This controls the accessability of functions / variables from the main class.
 		public Listener(ArenaRebuilder plugin) {
@@ -52,11 +53,31 @@ public class Listener extends PluginListener {
 		}
 		*/
 
-		/*
 		public boolean onCommand(Player player, String[] split) {
+             if(split[0].equalsIgnoreCase("/rebuildarena")){
+                 if(player.canUseCommand("/rebuildarena")){
+                     p.broadcast("[ARENAMESSAGE]: " + player.getName() + " is rebuilding the arena, stay clear!!!");
+                     final int y = 66;
+                     //int x = 289;
+                     //int z = 689;
+                     for(int x = 289;x <= 316; x++ ){
+                          for(int z = 689 ;z <= 713;z++){
+                                server.setBlockAt(2, x, y, z);                                //make dirt ground
+                                server.setBlockAt(49, x, 63, z);                            //make obsidian bottom
+                                server.setBlockAt(11, x, 64, z);                           //layer of lava on top
+                                server.setBlockAt(20, x, 77, z);                            //glass spectator floor
+                                for(int p_y = 67; p_y < 77; p_y++){
+                                    server.setBlockAt(0, x, p_y, z);                     //delete blocks
+                                }
+                          }
+                     }
+
+                     //server.setBlockAt(2, (int)player.getX(), (int)player.getY(), (int)player.getZ());
+                     p.broadcast("[ARENAMESSAGE]: Arena has been rebuild.");
+                 }
+             }
 			return false;
 		}
-		*/
 
 		/*
 		public boolean onConsoleCommand(String[] split) {

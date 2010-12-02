@@ -14,12 +14,12 @@ public class ArenaRebuilder extends Plugin {
 	protected String version = "0.1.1";
     @Override
     public void enable() {
-       
+         etc.getInstance().addCommand("/rebuildarena", "Rebuild the arena");
     }
 
     @Override
     public void disable() {
-
+        etc.getInstance().removeCommand("/rebuildarena");
     }
 
     public void initialize() {
@@ -36,7 +36,7 @@ public class ArenaRebuilder extends Plugin {
 		//etc.getLoader().addListener( PluginLoader.Hook.INVENTORY_CHANGE, l, this, PluginListener.Priority.MEDIUM);
 		//etc.getLoader().addListener( PluginLoader.Hook.IPBAN, l, this, PluginListener.Priority.MEDIUM);
 		//etc.getLoader().addListener( PluginLoader.Hook.KICK, l, this, PluginListener.Priority.MEDIUM);
-		//etc.getLoader().addListener( PluginLoader.Hook.LOGIN, l, this, PluginListener.Priority.MEDIUM);
+		etc.getLoader().addListener( PluginLoader.Hook.LOGIN, l, this, PluginListener.Priority.MEDIUM);
 		//etc.getLoader().addListener( PluginLoader.Hook.LOGINCHECK, l, this, PluginListener.Priority.MEDIUM);
 		//etc.getLoader().addListener( PluginLoader.Hook.NUM_HOOKS, l, this, PluginListener.Priority.MEDIUM);
 		//etc.getLoader().addListener( PluginLoader.Hook.PLAYER_MOVE, l, this, PluginListener.Priority.MEDIUM);
